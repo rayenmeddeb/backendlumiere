@@ -5,7 +5,9 @@ public enum Statut {
     NON_PLANIFIE,
     PLANIFIE,
     EN_COURS_DE_CHARGEMENT,
+    CHARGE,
     EN_COURS_DE_LIVRAISON,
     LIVRE,
+    FIN,
     NON_LIVRE
 }

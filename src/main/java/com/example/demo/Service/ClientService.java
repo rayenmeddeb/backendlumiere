@@ -22,11 +22,25 @@ public class ClientService {
     }
     
     
-    public String afficheremail(Long id) {
+    public Optional<Client> findbycode(String code){
     	
-    	Optional<Client> client=clientRepository.findById(id);
+    	return clientRepository.findByCodeclient(code);
+    	
+    }
+    
+    
+    public String afficheremail(String id) {
+    	
+    	Optional<Client> client=clientRepository.findByCodeclient(id);
     	Client c = client.get();
     	return c.getEmail();
+    	
+    }
+   public String affichertelephone(String id) {
+    	
+    	Optional<Client> client=clientRepository.findByCodeclient(id);
+    	Client c = client.get();
+    	return c.getTelephone();
     	
     }
 
@@ -52,5 +66,10 @@ public class ClientService {
         } else {
             throw new RuntimeException("Client not found with id " + id);
         }
+    }
+    
+    
+    public long countAllclients() {
+        return clientRepository.count(); // Or ordreRepository.countAllOrders();
     }
 }

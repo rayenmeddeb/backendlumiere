@@ -1,6 +1,7 @@
 package com.example.demo.Controller;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,8 +32,14 @@ public class ClientController {
     
     
     @GetMapping("/email/{id}")
-    public String afficheremail(@PathVariable Long id) {
+    public String afficheremail(@PathVariable String id) {
         return clientService.afficheremail(id);
+    }
+    
+    
+    @GetMapping("/telephone/{id}")
+    public String affichertelephone(@PathVariable String id) {
+        return clientService.affichertelephone(id);
     }
     
     
@@ -40,6 +47,12 @@ public class ClientController {
     @GetMapping("/{id}")
     public Optional<Client> getClientById(@PathVariable Long id) {
         return clientService.findById(id);
+    }
+    
+    
+    @GetMapping("/code/{id}")
+    public Optional<Client> getClientBycode(@PathVariable String id) {
+        return clientService.findbycode(id);
     }
 
     @PostMapping
@@ -55,5 +68,11 @@ public class ClientController {
     @DeleteMapping("/{id}")
     public void deleteClient(@PathVariable Long id) {
         clientService.deleteById(id);
+    }
+    
+    
+    @GetMapping("/count")
+    public long countOrders() {
+        return clientService.countAllclients();
     }
 }

@@ -31,13 +31,13 @@ public class TranckService {
         tranckRepository.deleteById(id);
     }
 
-    public Tranck updateTranck(Long id, Tranck tranckDetails) {
+  public Tranck updateTranck(Long id, Tranck tranckDetails) {
         Optional<Tranck> optionalTranck = tranckRepository.findById(id);
         if (optionalTranck.isPresent()) {
             Tranck tranck = optionalTranck.get();
             tranck.setDepartureDateTime(tranckDetails.getDepartureDateTime());
-            tranck.setLoadingDateTime(tranckDetails.getLoadingDateTime());
-            tranck.setDeliveryDateTime(tranckDetails.getDeliveryDateTime());
+        
+            
             tranck.setDepart(tranckDetails.getDepart());
             tranck.setChargement(tranckDetails.getChargement());
             tranck.setLivraison(tranckDetails.getLivraison());

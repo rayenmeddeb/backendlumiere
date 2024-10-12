@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Entity.Article;
+import com.example.demo.Entity.Client;
 import com.example.demo.Repository.ArticleRepository;
 
 @Service
@@ -36,6 +37,10 @@ public class ArticleService {
          
     
     }  
+    
+    public Article findByCodeArticle(String codeArticle) {
+        return articleRepository.findByCodeArticle(codeArticle);
+    }
         
     
     
@@ -52,4 +57,10 @@ public class ArticleService {
     }
     
         
+    
+    public long countAllarticles() {
+        return articleRepository.count(); // Or ordreRepository.countAllOrders();
+    }
+    
+    
     }

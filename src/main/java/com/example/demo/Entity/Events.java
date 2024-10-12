@@ -1,45 +1,49 @@
 package com.example.demo.Entity;
 
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.Data;
-
-
 @Data
 @Entity
 
-public class Tranck {
+public class Events {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-  
-    private Date departureDateTime;
-    private Boolean depart;
-    
-    private Date loadingDateD;
-    private Date loadingDateF;
-  
+    private String voycle; // Clé primaire
+
+    private String chauff;
+
  
-    private Boolean chargement;
-  
-    private Date deliveryDateD;
-    private Date deliveryDateF;
+    private String camion;
+
  
-    private Boolean livraison;
+    private String nameEvent;
+
+
+ 
+    private String dateSaisi;
+
+ 
+    private int KM;
+  
     
+  
     
-    @OneToOne(mappedBy = "trancking")
-    @JsonIgnore 
-    private Ordre ordre;
+    // Getters and Setters
+
+    
 }

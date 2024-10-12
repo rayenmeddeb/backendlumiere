@@ -14,6 +14,7 @@ public class Client {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	 private Long code;
+	private String codeclient;
     private String civilite;
     private String type;
     private String statut;
@@ -28,11 +29,11 @@ public class Client {
     private String adresse;
     private String ville;
     private String pays;
-
+    private Integer codepostal;
     // Mode de règlement
     private String client;
-    private String siret;
-    private Long idEdi;
+ 
+    private String idEdi;
     private Long idTva;
     private Long codeIso;
     private String contact;

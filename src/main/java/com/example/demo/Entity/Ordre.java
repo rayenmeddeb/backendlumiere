@@ -1,12 +1,13 @@
 package com.example.demo.Entity;
 
 import java.util.Date;
-
+import java.util.List;
 import java.util.Set;
 
 import com.example.demo.Service.MatriculeService;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -39,21 +40,32 @@ public class Ordre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
    
-    private String matricule;
+  private String orderNumber;;
 
     
-    private Long  client;
+    private String  client;
+    private String  nomclient;
+    private String siteclient;
+    private String idedi;
+    
+    
+    private String codeclientcharg;
     private String chargementNom;
     private String chargementAdr1;
     private String chargementAdr2;
+ 
     private String chargementVille;
     @Temporal(TemporalType.DATE)
     private Date chargementDate;
     
+    
+    private String codeclientliv;
     private String livraisonNom;
     private String livraisonAdr1;
     private String livraisonAdr2;
+    private String codepostalliv;
     private String livraisonVille;
     @Temporal(TemporalType.DATE)
     private Date livraisonDate;
@@ -63,53 +75,36 @@ public class Ordre {
     private String codeArticle;
     @Column(name = "designation")
    private String designation;
-    @Column(name = "ut")
-    private String ut;
-    @Column(name = "dev")
-    private String dev;
-    @Column(name = "uf")
-    private String uf;
+ 
+ /*
     @Column(name = "qte_trs")
     private Double qteTrs;
     @Column(name = "qte_taxee")
-    private Double qteTaxee;
-   @Column(name = "prix_unitaire")
-    private Double prixUnitaire;
-
-    private Double montant1;
-    @Column(name = "act")
-    private String act; 
-    
-    
-    
-
-
-
-    private Double frais;
-    private String numeroFR;
-    
+    private Double qteTaxee;*/
     private Double poids;
     private Double volume;
     private Integer nombrePalettes;
     private Integer nombreColis;
     private Double longueur;
-    private String reference;
-
-    
-
-    @Temporal(TemporalType.TIMESTAMP)
+   @Temporal(TemporalType.TIMESTAMP)
     @Column(nullable = false, updatable = false)
     private Date dateSaisie;
-    private Double montant;
-    
     @Enumerated(EnumType.STRING)
     private Statut statut;
     
+    private String voycle;
+    private String chauffeur;
+    private String telchauffeur;
+    private String camion;
+    private String datevoy;
+     private Set<String> commentaires; 
+     
+     
+    
+
    
    
-    private Set<String> commentaires; 
-    
-    
+    private Set <String> events;
     
     @OneToOne
   
